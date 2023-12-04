@@ -1,0 +1,58 @@
+.oval-shape {
+    position: absolute;
+    top: 30%;
+    right: 20%; /* Adjust the left position as needed */
+    transform: translate(0%, -50%);
+    background-color: #4CAF50; /* Green color */
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+}
+
+.textcontainer { 
+    background-color: #4CAF50;
+    margin: 0;
+    position: fixed;
+    height: 50%;
+    bottom: 0;
+    width: 100%;
+}
+
+.image-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.image-container img { 
+    width: 20vw; 
+    height: auto; 
+    position: relative; 
+    z-index: 1;
+}
+
+.top-section {
+    background-color: white;
+    /* other styles */
+}
+
+.middle-section {
+    /* position: relative; */
+}
+
+.bottom-section .textcontainer{
+    background-color: #4CAF50;
+    /* position: relative; */
+    /* top: 50%; */
+    /* other styles */
+}
+
+.textcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1.8vw;
+    /* height: 100%; */
+}

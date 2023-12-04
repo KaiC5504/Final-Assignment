@@ -7,14 +7,16 @@ body {
 .container { 
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo { 
     width: 10vw;
     height: auto;
-    float: left;
+    /* float: left; */
     padding: 1vh 0;
-    vertical-align: middle  ;
 }
 
 header { 
@@ -29,7 +31,7 @@ header::after {
 }
 
 nav { 
-    float: right;
+    /* float: right; */
 }
 
 nav ul { 
@@ -41,7 +43,8 @@ nav ul {
 nav li { 
     display: inline-block;
     margin-left: 5vw;
-    padding-top: 1.5vh;
+    padding-top: 1.2vh;
+    padding-bottom: 1.1vh;
     position: relative;
     vertical-align: middle;
 }
@@ -59,7 +62,7 @@ nav a::before {
     width: 100%;
     background-color: white;
     position: absolute;
-    bottom: 0;
+    bottom: 1vh;
     width: 0%;
     transition: all ease-in-out 200ms;
 }
@@ -102,16 +105,34 @@ nav a:hover::before {
     margin-left: 10vw;
     padding-top: 1.2vh;
     position: relative;
+    border-radius: 12px;
+    border-width: 1px;
 }
 
 .searchBox { 
     padding: 5px;
     font-size: 1.2vw;
+    border-radius: 12px;
+    border-width: 1px;
 }
 
 .submit { 
     padding: 5px 10px;
     font-size: 1.2vw;
     cursor: pointer;
+    border-radius: 12px;
+    border-width: 1px;
 }
 
+.iconWidth { 
+    width: 1.5vw;
+    height: auto;
+    vertical-align: middle;
+}
+
+.iconText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
