@@ -46,10 +46,9 @@
         </div>
     </div>
 
-    <div class="middle-section">
-        <div class="image-container">
-            <img src="https://www.alwaysonpurpose.com/wp-content/uploads/2019/11/happypeople-1024x679.jpg" alt="About Us Image">
-        </div>
+
+    <div class="image-container">
+        <img src="https://www.alwaysonpurpose.com/wp-content/uploads/2019/11/happypeople-1024x679.jpg" alt="About Us Image">
     </div>
 
     <div class="bottom-section">
