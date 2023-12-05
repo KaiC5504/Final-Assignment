@@ -17,27 +17,7 @@
     <?php include "nav_bar.php"; ?>
 </header>
 
-<body >
-    <!-- <h1 style = "text-align: center; font-size: xxx-large;">About Us</h1>
-
-    <div class="oval-shape">
-        <p>Contact Us<br>033197088</p>
-    </div>
-
-    <div class="image-container">
-        <img src="https://www.alwaysonpurpose.com/wp-content/uploads/2019/11/happypeople-1024x679.jpg" alt="About Us Image">
-    </div>
-
-
-    <div class = "textcontainer">
-    <p style="text-align: center; background-color: #4CAF50; font-size: 1.8vw; padding: 20px">
-    <br>
-    The founders of AirCON, Tan Kai Chuan and Ong Chun Sxien, expressed worry over overpopulation during a lecture that led to the creation of the airline. As we became aware of the connection between pollution and population growth, we realized we had to deal with the growing air pollution brought on by more factories and cars.
-
-        <br><br>We used the internet's power as programmers and lovers of the outdoors to raise awareness of the risks caused by air pollution. AirCON is more than just a company—it's how we voice our worries about the environment and strive for improvement.
-        
-        <br><br>Our goal is to minimize the negative effects of air pollution in order to make the world a safer and healthier place. In an effort to make the world a cleaner, safer place, we want to increase public awareness of the health hazards related to air pollution.</p>
-    </div> -->
+<body>
 
     <div class="top-section">
         <h1 style="text-align: center; font-size: xxx-large;">About Us</h1>
@@ -62,8 +42,6 @@
             </p>
         </div>
     </div>
-
-
         
 </body>
 </html>
