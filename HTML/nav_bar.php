@@ -1,17 +1,10 @@
-<div class = "container">
+ <div class = "container">
 
     <a href = "index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
 
-    <div class = "hamburger">
-        <span class = "bar"></span>
-        <span class = "bar"></span>
-        <span class = "bar"></span>
-    </div>
-
-
     <nav>
         <ul class = "navMenu">
-            <li>
+            <li class = "navItem">
                 <a href = "about_us.php">
                     <div class="iconText">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 iconWidth">
@@ -22,7 +15,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class = "navItem">
                 <a href = "map.php">
                     <div class="iconText">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 iconWidth">
@@ -33,7 +26,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class = "navItem">
                 <a href = "donation.php">
                     <div class="iconText">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 iconWidth">
@@ -44,12 +37,12 @@
                 </a>
             </li>
 
-            <li class = "search">
+            <li class = "search navItem">
                 <input type = "text" placeholder = "Search" class = "searchBox">
                 <button type = "submit" class = "submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </li>
 
-            <li>
+            <li class = "navItem">
                 <a href = "login.php">
                     <div class="iconText">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 iconWidth">
@@ -59,8 +52,12 @@
                     </div>
                 </a>
             </li>
-
         </ul>
+        <div class = "hamburger">
+        <span class = "bar"></span>
+        <span class = "bar"></span>
+        <span class = "bar"></span>
+    </div>
     </nav>
 </div>
 

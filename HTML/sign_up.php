@@ -11,8 +11,8 @@
     <link rel = "stylesheet" href = "../CSS/style.css">
     <link rel = "icon" href = "../resources/Images/Web_Icon.png">
     <script src="https://kit.fontawesome.com/64d3afc91e.js" crossorigin="anonymous"></script>
+    <script src = "../JavaScript/hamburger.js" defer></script>
     
-
     <style>
         <?php include "../CSS/sign_up.css"; ?>
     </style>
