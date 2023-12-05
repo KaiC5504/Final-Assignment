@@ -2,8 +2,15 @@
 
     <a href = "index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
 
+    <div class = "hamburger">
+        <span class = "bar"></span>
+        <span class = "bar"></span>
+        <span class = "bar"></span>
+    </div>
+
+
     <nav>
-        <ul>
+        <ul class = "navMenu">
             <li>
                 <a href = "about_us.php">
                     <div class="iconText">
