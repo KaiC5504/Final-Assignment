@@ -1,4 +1,4 @@
- <div class = "container">
+<div class = "container">
 
     <a href = "index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
 
@@ -60,4 +60,3 @@
     </div>
     </nav>
 </div>
-

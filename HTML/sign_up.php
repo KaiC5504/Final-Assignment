@@ -1,5 +1,5 @@
 <?php
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 
         <h1 style = "text-align: center; margin-bottom: 7vh; margin-top: 0.5vh; width: 100%;">Create Account</h1>
 
-        <form onsubmit = "event.preventDefault(); validateForm()">
+        <form id = "signupForm" onsubmit = "event.preventDefault(); validateForm()" method = "POST" action = "">
             <div class = "inputRow">
                 <div class = "inputs">
                     <label for = "username">Username:</label>
@@ -65,7 +65,7 @@
             </div>
         </form>
 
-        <script src = "../Javascript/sign_up.js"></script>
+        <!-- <script src = "../Javascript/sign_up.js"></script> -->
     </div>
 </body>
 </html>
