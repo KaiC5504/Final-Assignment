@@ -1,5 +1,14 @@
 <?php
-    
+    $usernameError = "";
+    if (empty($_POST['username'])) {
+        $usernameError = "Username cannot be empty";
+    }
+
+    else
+    {
+        $username = $_POST['username'];
+        echo "username: $username";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +37,12 @@
 
         <h1 style = "text-align: center; margin-bottom: 7vh; margin-top: 0.5vh; width: 100%;">Create Account</h1>
 
-        <form id = "signupForm" onsubmit = "event.preventDefault(); validateForm()" method = "POST" action = "">
+        <form id = "signUpForm" onsubmit = "event.preventDefault(); validateForm()" method = "POST" action = "sign_up.php">
             <div class = "inputRow">
                 <div class = "inputs">
                     <label for = "username">Username:</label>
                     <input type = "text" id = "username" name = "username" class = "signUpInput">
-                    <span class = "error"></span>
+                    <span class = "error" value = "<?=$usernameError ?>"></span>
                 </div>
             
 

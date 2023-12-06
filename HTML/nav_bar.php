@@ -1,6 +1,6 @@
 <div class = "container">
 
-    <a href = "index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
+    <a href = "../index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
 
     <nav>
         <ul class = "navMenu">
