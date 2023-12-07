@@ -126,7 +126,13 @@
 <body>    
     <h1 style = "margin-left: 8.5vw; margin-top: 10vh; font-size: 6vw; color: #3834E3;">Welcome To Air<a style = "color: #7f7ea5;">Con</a></h1>
 
-    <a href = "HTML/sign_up.php"><button class = "signUpButton"><b>Sign UP Now</b></button></a>
+
+    <?php 
+        if (!isset($_SESSION['username'])) { 
+            echo "<a href = 'HTML/sign_up.php'><button class = 'signUpButton'><b>Sign UP Now</b></button></a>";
+        }
+    ?>
+    <!-- <a href = "HTML/sign_up.php"><button class = "signUpButton"><b>Sign UP Now</b></button></a> -->
 
 </body>
 </html>
