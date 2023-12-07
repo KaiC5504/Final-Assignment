@@ -19,7 +19,8 @@ body {
 .inputs {
     margin: 0 auto;
     box-sizing: border-box;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
+    
 }
 
 label {
@@ -35,7 +36,7 @@ label {
     border: 1px solid #ccc;
     border-radius: 16px; 
     margin-top: 0.5vh;
-    margin-bottom: 7vh;
+    margin-bottom: 10px;
     background-color: #e5e5e5;
 }
 
@@ -54,6 +55,13 @@ label {
 
 .loginButton:active { 
     background-color: rgb(192, 192, 192);
+}
+
+.error { 
+    color: red;
+    position: relative;
+    margin-top: -100px;
+    font-size: 1vw; 
 }
 
 @media (max-width: 768px) {

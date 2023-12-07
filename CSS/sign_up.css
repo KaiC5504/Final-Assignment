@@ -54,7 +54,6 @@ label {
     border-radius: 16px; 
     font-size: 1vw;
     text-decoration: none;
-    
 }
 
 .createAccButton:active { 
@@ -85,7 +84,6 @@ form {
 #signup { 
     font-size: 1vw;
     color: green;
-
 }
 
 @media (max-width: 768px) {

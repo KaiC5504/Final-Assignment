@@ -1,3 +1,32 @@
+<?php
+    session_start();
+    require('connect.php');
+
+    $usernameError = "";
+    $passwordError = "";
+
+
+    if (isset($_POST['login'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $query = "Select * from users where username = '$username' and password = '".md5($password)."'";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        if (mysqli_num_rows($result) == 1) {
+            
+            $_SESSION['username'] = $username;
+            header("Location: ../index.php");
+            exit();
+        }
+        else {
+            $usernameError = "Username or Password is invalid";
+            $passwordError = "Username or Password is invalid";
+            session_unset();
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,24 +48,28 @@
 </header>
 
 <body>
-    <div class="loginContainer">
+    <form action = "login.php" method = "POST" novalidate>
+        <div class="loginContainer">
 
-        <h1 style = "text-align: center; margin-bottom: 7vh; margin-top: 0.5vh; width: 100%;">Login</h1>
+            <h1 style = "text-align: center; margin-bottom: 7vh; margin-top: 0.5vh; width: 100%;">Login</h1>
 
-      <div class="inputs">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required class = "loginInput">
-      </div>
+            <div class="inputs">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class = "loginInput"> <br>
+                <span class = "error"><?=$usernameError ?></span>
+            </div>
 
-      <div class="inputs">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required class = "loginInput">
-      </div>
+            <div class="inputs">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class = "loginInput"> <br>
+                <span class = "error"><?=$passwordError ?></span>
+            </div>
 
-      <div style = "flex: 0 0 100%; text-align: center;">
-          <button type="submit" class = "loginButton"><b>Login</b></button>
-          <p style = "margin-top: 1.5vh; font-size: 1vw; color: #B3B3B3;">Not yet register? &nbsp;<a href = "sign_up.php" style = "text-decoration: none; color: #4d4d4d;">Register Here</a></p>
-      </div>
-  </div>
+            <div style = "flex: 0 0 100%; text-align: center;">
+                <button type="submit" class = "loginButton" name = "login"><b>Login</b></button>
+                <p style = "margin-top: 1.5vh; font-size: 1vw; color: #B3B3B3;">Not yet register? &nbsp;<a href = "sign_up.php" style = "text-decoration: none; color: #4d4d4d;">Register Here</a></p>
+            </div> 
+        </div>
+  </form>
 </body>
 </html>

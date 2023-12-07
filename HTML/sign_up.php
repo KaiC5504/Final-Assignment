@@ -1,14 +1,68 @@
 <?php
-    $usernameError = "";
-    if (empty($_POST['username'])) {
-        $usernameError = "Username cannot be empty";
-    }
+    require('connect.php');
 
-    else
-    {
-        $username = $_POST['username'];
-        echo "username: $username";
+    $usernameError = "";
+    $username = null;
+
+    $emailError = "";
+    $email = null;
+
+    $passwordError = "";
+    $password = null;
+
+    $dobError = "";
+    $dob = null;
+
+    $errorFlag = false;
+
+    if(isset($_POST['submit'])) {
+        if (empty($_POST['username'])) {
+            $usernameError = "Username cannot be empty";
+            $errorFlag = true;
+        }
+        else
+        {
+            $username = $_POST['username'];
+        }
+
+        if(strlen(($_POST['password'])) < 8) {
+            $passwordError = "Password must be at least 8 characters";
+            $errorFlag = true;
+        }
+        else {$password = $_POST['password'];}
+
+        $email = $_POST['email'];
+
+        $pattern = '/\S+@\S+\.\S+/';
+
+        if(!preg_match($pattern, $email)) {
+            $emailError = "Email is not valid";
+            $errorFlag = true;
+        }
+
+        if (empty($_POST['dob'])) {
+            $dobError = "Date of Birth cannot be empty";
+            $errorFlag = true;
+        }
+        else
+        {
+            $dob = $_POST['dob'];
+        }
+
+
+        if(!$errorFlag) {
+            $username = stripslashes($_POST['username']);
+            $username = mysqli_real_escape_string($con, $username);
+
+            $query = "INSERT into users (username, password, email, dob)
+            VALUES ('$username', '".md5($password)."', '$email', '$dob')";
+            mysqli_query($con, $query);
+        
+        }
+
+       
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -37,38 +91,38 @@
 
         <h1 style = "text-align: center; margin-bottom: 7vh; margin-top: 0.5vh; width: 100%;">Create Account</h1>
 
-        <form id = "signUpForm" onsubmit = "event.preventDefault(); validateForm()" method = "POST" action = "sign_up.php">
+        <form id = "signUpForm" method = "POST" action = "sign_up.php" novalidate>
             <div class = "inputRow">
                 <div class = "inputs">
                     <label for = "username">Username:</label>
-                    <input type = "text" id = "username" name = "username" class = "signUpInput">
-                    <span class = "error" value = "<?=$usernameError ?>"></span>
+                    <input type = "text" id = "username" name = "username" class = "signUpInput" value=<?=$username?>>
+                    <span class = "error"><?=$usernameError ?></span>
                 </div>
             
 
                 <div class = "inputs">
                     <label for = "email">Email:</label>
-                    <input type = "email" id = "email" name = "email" class = "signUpInput">
-                    <span class = "error"></span>
+                    <input type = "email" id = "email" name = "email" class = "signUpInput" value='<?=$email?>' autocomplete="off"> 
+                    <span class = "error"><?=$emailError?></span>
                 </div>
             </div>
 
             <div class = "inputRow">
                 <div class = "inputs">
                     <label for = "password">Password:</label>
-                    <input type = "password" id = "password" name = "password" class = "signUpInput">
-                    <small class = "error"></small>
+                    <input type = "password" id = "password" name = "password" class = "signUpInput" value='<?=$password?>'>
+                    <small class = "error"><?=$passwordError?></small>
                 </div>
 
                 <div class = "inputs">
                     <label for = "dob">Date of Birth:</label>
-                    <input type = "date" id = "dob" name = "dob" class = "signUpInput">
-                    <small class = "error"></small>
+                    <input type = "date" id = "dob" name = "dob" class = "signUpInput" value = "<?=$dob?>">
+                    <small class = "error"><?=$dobError?></small>
                 </div>
             </div>
             
             <div style = "flex: 0 0 100%; text-align: center;">
-                <button type = "submit" class = "createAccButton"><b>SIGN UP</b></button>
+                <button type = "submit" class = "createAccButton" name='submit'><b>SIGN UP</b></button>
                 <p id = "signup"></p>
                 <p style = "margin-top: 1.5vh; font-size: 1vw; color: #B3B3B3;">Already Registered? &nbsp;<a href = "login.php" style = "text-decoration: none; color: #4d4d4d;">Login Here</a></p>
             </div>
