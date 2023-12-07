@@ -1,11 +1,12 @@
 <?php
-    require('HTML/connect.php');
+    require('connect.php');
     session_start();
     if (isset($_SESSION['username'])) {
         
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 4)) {
             session_unset();
             session_destroy();
+            header("Location: ../index.php");
             exit();
         };
         $_SESSION['LAST_ACTIVITY'] = time();

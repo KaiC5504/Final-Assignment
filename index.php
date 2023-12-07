@@ -3,9 +3,10 @@
     session_start();
     if (isset($_SESSION['username'])) {
         
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1)) {
             session_unset();
             session_destroy();
+            header("Location: index.php");
             exit();
         };
         $_SESSION['LAST_ACTIVITY'] = time();
@@ -110,9 +111,6 @@
                 </a>";
                 }
             ?>
-
-
-
         </li>
     </ul>
     <div class = "hamburger">

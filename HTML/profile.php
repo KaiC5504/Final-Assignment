@@ -9,9 +9,10 @@
         $dob = $row['dob'];
         echo "$username <br>"; 
         echo "$dob";
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 100)) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 4)) {
             session_unset();
             session_destroy();
+            header("Location: ../index.php");
             exit();
         };
         $_SESSION['LAST_ACTIVITY'] = time();
