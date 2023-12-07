@@ -3,7 +3,7 @@
     session_start();
     if (isset($_SESSION['username'])) {
         
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 100)) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             session_unset();
             session_destroy();
             header("Location: ../index.php");
