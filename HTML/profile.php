@@ -84,5 +84,11 @@
             </ul>
         </div>
     </div>
+
+
+    <a href = "edit.php"><button type = "submit" class = "editButton" name = "edit"><span><b>Edit </b></span></button></a>
+
+
+    
 </body>
 </html>
