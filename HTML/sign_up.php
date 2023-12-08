@@ -55,12 +55,10 @@
             $username = mysqli_real_escape_string($con, $username);
 
             $query = "INSERT into users (username, password, email, dob)
-            VALUES ('$username', '".md5($password)."', '$email', '$dob')";
+            VALUES ('$username', '$password', '$email', '$dob')";
             mysqli_query($con, $query);
         
         }
-
-       
     }
     
 ?>
@@ -95,7 +93,7 @@
             <div class = "inputRow">
                 <div class = "inputs">
                     <label for = "username">Username:</label>
-                    <input type = "text" id = "username" name = "username" class = "signUpInput" value=<?=$username?>>
+                    <input type = "text" id = "username" name = "username" class = "signUpInput" value='<?=$username?>'>
                     <span class = "error"><?=$usernameError ?></span>
                 </div>
             
@@ -123,7 +121,6 @@
             
             <div style = "flex: 0 0 100%; text-align: center;">
                 <button type = "submit" class = "createAccButton" name='submit'><b>SIGN UP</b></button>
-                <p id = "signup"></p>
                 <p style = "margin-top: 1.5vh; font-size: 1vw; color: #B3B3B3;">Already Registered? &nbsp;<a href = "login.php" style = "text-decoration: none; color: #4d4d4d;">Login Here</a></p>
             </div>
         </form>

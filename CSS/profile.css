@@ -61,7 +61,7 @@ body{
     margin-top: 20px;
 }
 
-.editButton{
+.editButton, .logoutButton{
     display: inline-block;
     padding: 2vh 3vw;
     font-size: 2vw;
@@ -73,30 +73,38 @@ body{
     background-color: #0d1425;
     border: none;
     border-radius: 1em;
-    position: absolute;
-    right: 6vw;
-    bottom: 15vh;
+    position: relative;
 }
 
-.editButton:hover { 
+.buttonRow {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    right: 3vw;
+    bottom: 3vh;
+    gap: 1vw;
+    padding: 10px;
+}
+
+.editButton:hover, .logoutButton:hover { 
     background-color: #192c60;
     transition: background-color 0.4s ease;
 }
 
-.editButton:active { 
+.editButton:active, .logoutButton:active { 
     background-color: #192c60;
     box-shadow: 0 0.1em rgb(169, 169, 169);
     transform: translateY(0.2em);
 }
 
-.editButton span {
+.editButton span, .logoutButton span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.editButton span:after {
+.editButton span:after, .logoutButton span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -105,11 +113,11 @@ body{
     transition: 0.5s;
 }
 
-.editButton:hover span {
+.editButton:hover span, .logoutButton:hover span {
     padding-right: 35px;
 }
   
-.editButton:hover span:after {
+.editButton:hover span:after, .logoutButton:hover span:after {
     opacity: 1;
     right: 0;
 }

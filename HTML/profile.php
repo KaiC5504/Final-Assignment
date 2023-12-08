@@ -21,6 +21,13 @@
     else {
         session_unset();
     }
+
+    if (isset($_POST['logout'])) {
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ../index.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -59,36 +66,37 @@
             </ul> -->
         </div>
         <div class = "details">
-            <ul>
-                <h1>Details</h1>
-            </ul>
-            <ul>
-                <h3>Username</h3>
-                <?php echo "<li>$username</li>"; ?>
-            </ul>
-            <ul>
-                <h3>Birthday</h3>
-                <?php echo "<li>$dob</li>"; ?>
-            </ul>
-            <ul>
-                <h3>Account Created</h3>
-                <li>WILL BE ADDED IN</li>
-            </ul>
-            <!-- <ul>
-                <h3>More Info</h3>
-                <p>Ok</p>
-            </ul> -->
-            <ul>
-                <h3>Contact</h3>
-                <?php echo "$email"; ?>
-            </ul>
+            <form method = "GET" action = "edit.php">
+                <ul>
+                    <h1>Details</h1>
+                </ul>
+                <ul>
+                    <h3>Username</h3>
+                    <li name = "username"><?php echo "$username"; ?></li>
+                </ul>
+                <ul>
+                    <h3>Birthday</h3>
+                    <li name = "dob"><?php echo "$dob"; ?></li>
+                </ul>
+                <ul>
+                    <h3>Account Created</h3>
+                    <li>WILL BE ADDED IN</li>
+                </ul>
+                <ul>
+                    <h3>Contact</h3>
+                    <li name = "email"><?php echo "$email"; ?></li>
+                </ul>
         </div>
     </div>
 
 
-    <a href = "edit.php"><button type = "submit" class = "editButton" name = "edit"><span><b>Edit </b></span></button></a>
-
-
+    <div class = "buttonRow">
+        <button type = "submit" class = "editButton" name = "edit"><span><b>Edit </b></span></button>
+    </form>
+    <form method="POST">
+    <button type = "submit" class = "logoutButton" name='logout'><span><b>Logout</b></span></button>
+    </form>
+    </div>
     
 </body>
 </html>
