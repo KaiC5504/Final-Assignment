@@ -4,15 +4,18 @@
     $query = "SELECT * FROM users";
     $result = mysqli_query($con, $query);
 
+    $user_idList = [];
     $usernameList = [];
     $emailList = [];
     $is_adminList = [];
 
     while ($row = mysqli_fetch_array($result)) {
+        $user_id = $row['user_id'];
         $username = $row['username'];
         $email = $row['email'];
         $is_admin = $row['is_admin'];
 
+        $user_idList[] = $user_id;
         $usernameList[] = $username;
         $emailList[] = $email;
 
@@ -127,162 +130,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (isset($usernameList[0])): ?>
+                    <?php for ($i = 0; $i < count($user_idList); $i++): ?>
                         <tr>
                             <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[0]) ? $usernameList[0]:''?></h5>
+                                <h5 name = "username"><?php echo isset($usernameList[$i]) ? $usernameList[$i]:''?></h5>
                             </td>
 
                             <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[0]) ? $emailList[0]:''?></h5>
+                                <h5 name = "email"><?php echo isset($emailList[$i]) ? $emailList[$i]:''?></h5>
                             </td>
 
                             <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[0]) ? $is_adminList[0]:''?></p>
+                                <p name = "email"><?php echo isset($is_adminList[$i]) ? $is_adminList[$i]:''?></p>
                             </td>
 
                             <td class = "actions">
-                                <a href = "#">Edit</a>
+                                <a href = "admin_edit.php">Edit</a>
                             </td>
                             <td class = "actions">
-                                <a href = "#">Delete</a>
+                                <a href = "admin_delete.php?user_id=<?php echo $user_idList[$i]; ?>">Delete</a>
                             </td>
                         </tr>
-                    <?php endif; ?>
-
-                    <?php if (isset($usernameList[1])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[1]) ? $usernameList[1]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[1]) ? $emailList[1]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[1]) ? $is_adminList[1]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-
-                    <?php if (isset($usernameList[2])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[2]) ? $usernameList[2]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[2]) ? $emailList[2]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[2]) ? $is_adminList[2]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                    <?php if (isset($usernameList[3])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[3]) ? $usernameList[3]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[3]) ? $emailList[3]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[3]) ? $is_adminList[3]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                    <?php if (isset($usernameList[4])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[4]) ? $usernameList[4]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[4]) ? $emailList[4]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[4]) ? $is_adminList[4]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                    <?php if (isset($usernameList[5])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[5]) ? $usernameList[5]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[5]) ? $emailList[5]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[5]) ? $is_adminList[5]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                    <?php if (isset($usernameList[6])): ?>
-                        <tr>
-                            <td class = "userName">
-                                <h5 name = "username"><?php echo isset($usernameList[6]) ? $usernameList[6]:''?></h5>
-                            </td>
-
-                            <td class = "userEmail">
-                                <h5 name = "email"><?php echo isset($emailList[6]) ? $emailList[6]:''?></h5>
-                            </td>
-
-                            <td class = "userRole">
-                                <p name = "email"><?php echo isset($is_adminList[6]) ? $is_adminList[6]:''?></p>
-                            </td>
-
-                            <td class = "actions">
-                                <a href = "#">Edit</a>
-                            </td>
-                            <td class = "actions">
-                                <a href = "#">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
+                    <?php endfor; ?>
                 </tbody>
             </table>
         </div>
