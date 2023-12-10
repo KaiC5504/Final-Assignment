@@ -64,7 +64,7 @@
     
     <section id = "menu">
         <div class = "navLogo">
-            <a href = "../index.php"><img src = "../resources/Images/AirCon_Logo.png" alt = "logo"></a>
+            <a href = "../index.php"><img src = "../resources/Images/AirPure_Logo.png" alt = "logo"></a>
         </div>
 
         <div class = "menuItems">

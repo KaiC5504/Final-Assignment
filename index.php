@@ -37,11 +37,11 @@
 
     <style>
         body { 
-            /* background-image: url("../resources/Images/Background.png"); */
+            background-image: url("resources/Images/Background.png");
             background-repeat: no-repeat;
             background-size: cover;
             height: 100%;
-            background-position: center;
+            background-position: center bottom;
             background-attachment: fixed;
             margin: 0;
             padding: 0;
@@ -73,7 +73,7 @@
 <header>
 <div class = "container">
 
-<a href = "index.php"><img src = "resources/Images/AirCon_Logo.png" alt = "logo" class = "logo"></a>
+<a href = "index.php"><img src = "resources/Images/AirPure_Logo.png" alt = "logo" class = "logo"></a>
 
 <nav>
     <ul class = "navMenu">
@@ -162,7 +162,7 @@
 
 
 <body>    
-    <h1 style = "margin-left: 8.5vw; margin-top: 10vh; font-size: 6vw; color: #3834E3;">Welcome To Air<a style = "color: #7f7ea5;">Con</a></h1>
+    <h1 style = "margin-left: 8.5vw; margin-top: 10vh; font-size: 6vw; color: #3834E3;">Welcome To Air<a style = "color: #7f7ea5;">Pure</a></h1>
 
     <?php if (isset($_SESSION['message'])): ?>
         <div class = "message" id = "message">
