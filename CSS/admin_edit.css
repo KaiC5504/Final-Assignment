@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body { 
+    width: 100%;
+    background: #E5E7EB;
+    position: relative;
+    display: flex;
+}
+
+#menu {
+    background: rgb(38, 63, 42);
+    width: 18vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#menu .navLogo img{ 
+    width: 250px;
+    margin-right: 25px;
+}
+
+#menu .navLogo {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 2vh 0 0 2vw;
+}
+
+#menu .menuItems { 
+    margin-top: 50px;
+}
+
+#menu .menuItems li{ 
+    list-style: none;
+    padding: 3vh 0;
+    padding-left: 1.5vw;
+    transition: 0.3s ease;
+}
+
+#menu .menuItems li:hover{ 
+    background: rgb(61, 100, 67);
+    cursor: pointer;
+}
+
+#menu .menuItems li:nth-child(1){ 
+    border-left: 5px solid rgb(255, 255, 255);
+}
+
+#menu .menuItems li i{ 
+    color: rgb(135, 135, 135);
+    width: 30px;
+    height: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 10px 0 25px;
+}
+
+#menu .menuItems li:hover i,
+#menu .menuItems li:hover a {
+    color: rgb(255, 255, 255);
+    /* transition: 0.5s; */
+}
+
+#menu .menuItems li a {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    padding-left: 1vw;
+    font-weight: 500px;
+    transition: 0.3s ease;
+}
+
+#interface {
+    width: calc(100% - 300px);
+    margin-left: 18vw;
+    position: relative;
+}
+
+#interface .navBar { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 15px 40px;
+    border-bottom: 4px solid rgb(142, 106, 185);
+}
+
+#interface .navBar .search { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 4px;
+}
+
+#interface .navBar .search i { 
+    margin-right: 10px;
+}
+
+#interface .navBar .search input{ 
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+#interface .navBar .profile { 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+}
+
+
+#interface .navBar .profile img{ 
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.iName { 
+    color: rgb(49, 33, 68); 
+    padding: 30px 30px 0 30px; 
+    font-size: 50px; 
+    font-weight: 700;
+}
+
+form { 
+    width: 85%;
+    margin: 30px auto;
+    background: white;
+    border: 3px solid #dcdcdc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.formRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.group { 
+    flex: 1;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input, select { 
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.dropdownGroup select { 
+    width: 100%;
+}
+
+label { 
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-bottom: 10px;
+    display: block  ;
+}
+
+button { 
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 12px;
+}
+
+button:active {
+    transform: scale(0.95); /* Scales the button to 95% of its original size */
+    background-color: darkgrey; /* Changes the background color to dark grey */
+}

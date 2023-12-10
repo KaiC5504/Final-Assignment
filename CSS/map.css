@@ -1,0 +1,46 @@
+.solid {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.enlarging-container {
+    position: relative;
+}
+
+button i {
+    font-size: 20px; /* Adjust the size as needed */
+}
+
+.hidden-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.contain {
+    width: 100%;
+    height: auto;
+}
+
+.contain img {
+    width: 100%;
+    height: auto;
+}
+
+.contain .btn {
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

@@ -13,8 +13,8 @@
         $result = mysqli_query($con, $query);
         $row = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) == 1) {
-            
             $_SESSION['username'] = $username;
+            $_SESSION['is_admin'] = $row['is_admin'];
             header("Location: ../index.php");
             exit();
         }

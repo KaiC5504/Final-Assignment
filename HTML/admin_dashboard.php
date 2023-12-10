@@ -31,7 +31,14 @@
     // }
 
     $_SESSION['LAST_ACTIVITY'] = time();
-        
+    
+    if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+        session_unset();
+        session_destroy();
+        header("Location: ../index.php");
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +75,7 @@
             <li><i class="fa-solid fa-pen-to-square"></i><a href = "#">Forms</a></li>
             <li><i class="fa-solid fa-credit-card"></i><a href = "#">Cards</a></li>
             <li><i class="fa-solid fa-chart-pie"></i><a href = "#">Chart</a></li>
+            <li><i class="fa-solid fa-right-from-bracket"></i><a href = "?logout=true">Logout</a></li>
         </div>
     </section>
 
@@ -145,7 +153,7 @@
                             </td>
 
                             <td class = "actions">
-                                <a href = "admin_edit.php">Edit</a>
+                                <a href = "admin_edit.php?user_id=<?php echo $user_idList[$i]; ?>">Edit</a>
                             </td>
                             <td class = "actions">
                                 <a href = "admin_delete.php?user_id=<?php echo $user_idList[$i]; ?>">Delete</a>

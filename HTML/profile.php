@@ -54,16 +54,6 @@
     <div class = "profileContainer">
         <div class = "leftBox">
             <img src = "../resources/Images/Profile.png" alt = "Profile Picture">
-            <!-- <ul>
-                <li>Robert Downey Jr.</li>
-                <li>50 years</li>
-                <li>Actor</li>
-                <li>
-                    <i style="font-size:24px" class="fa"></i>
-                    <i style="font-size:24px" class="fa"></i>
-                    <i style="font-size:24px" class="fa"></i>
-                </li>
-            </ul> -->
         </div>
         <div class = "details">
             <form method = "GET" action = "edit.php">
