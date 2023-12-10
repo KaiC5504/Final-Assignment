@@ -1,6 +1,12 @@
 <?php
     require('HTML/connect.php');
     session_start();
+
+    // if (isset($_SESSION['message'])) {
+    //     echo "<script type='text/javascript'>alert('" . $_SESSION['message'] . "');</script>";
+    //     unset($_SESSION['message']);
+    // }
+
     if (isset($_SESSION['username'])) {
         
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
@@ -39,6 +45,27 @@
             background-attachment: fixed;
             margin: 0;
             padding: 0;
+        }
+
+        .message { 
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            padding: 20px;
+            background-color: #dff0d8;
+            border-radius: 12px;
+            color: #2e582f;
+            font-size: 40px; 
+            z-index: 1000;
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -137,6 +164,20 @@
 <body>    
     <h1 style = "margin-left: 8.5vw; margin-top: 10vh; font-size: 6vw; color: #3834E3;">Welcome To Air<a style = "color: #7f7ea5;">Con</a></h1>
 
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class = "message" id = "message">
+            <?php 
+                echo $_SESSION['message']; 
+                unset($_SESSION['message']);
+            ?>
+        </div> 
+        <script type="text/javascript">
+            document.getElementById('message').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('message').style.display = 'none';
+            }, 5000); // The message box will disappear after 5 seconds
+        </script>
+    <?php endif ?>
 
     <?php 
         if (!isset($_SESSION['username'])) { 

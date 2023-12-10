@@ -63,8 +63,8 @@ body{
 
 .editButton, .logoutButton{
     display: inline-block;
-    padding: 2vh 3vw;
-    font-size: 2vw;
+    padding: 2vh 1vw;
+    font-size: 1vw;
     cursor: pointer;
     text-align: center;
     text-decoration: none;

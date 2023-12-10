@@ -48,6 +48,20 @@
 </header>
 
 <body>
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class = "message" id = "message">
+            <?php 
+                echo $_SESSION['message']; 
+                unset($_SESSION['message']);
+            ?>
+        </div> 
+        <script type="text/javascript">
+            document.getElementById('message').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('message').style.display = 'none';
+            }, 5000); // The message box will disappear after 5 seconds
+        </script>
+    <?php endif ?>
     <form action = "login.php" method = "POST" novalidate>
         <div class="loginContainer">
 

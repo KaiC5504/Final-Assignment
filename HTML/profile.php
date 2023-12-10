@@ -8,8 +8,6 @@
         $username = $row['username'];
         $dob = $row['dob'];
         $email = $row['email'];
-        // echo "$username <br>"; 
-        // echo "$dob";
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             session_unset();
             session_destroy();
