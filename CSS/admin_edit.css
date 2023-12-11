@@ -69,7 +69,6 @@ body {
 #menu .menuItems li:hover i,
 #menu .menuItems li:hover a {
     color: rgb(255, 255, 255);
-    /* transition: 0.5s; */
 }
 
 #menu .menuItems li a {
@@ -195,6 +194,6 @@ button {
 }
 
 button:active {
-    transform: scale(0.95); /* Scales the button to 95% of its original size */
-    background-color: darkgrey; /* Changes the background color to dark grey */
+    transform: scale(0.95);
+    background-color: darkgrey; 
 }

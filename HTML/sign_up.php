@@ -1,6 +1,7 @@
 <?php
     require('connect.php');
 
+    //set variables for user details and error
     $usernameError = "";
     $username = null;
 
@@ -15,6 +16,7 @@
 
     $errorFlag = false;
 
+    //form validation and insert user details into database
     if(isset($_POST['submit'])) {
         if (empty($_POST['username'])) {
             $usernameError = "Username cannot be empty";
@@ -50,14 +52,17 @@
         }
 
 
+        //insert user details into database if no error
         if(!$errorFlag) {
             $username = stripslashes($_POST['username']);
             $username = mysqli_real_escape_string($con, $username);
+            date_default_timezone_set('Asia/Kuala_Lumpur');
+            $date_created = date("Y-m-d");
 
-            $query = "INSERT into users (username, password, email, dob)
-            VALUES ('$username', '$password', '$email', '$dob')";
+            $query = "INSERT into users (username, password, email, dob, date_created)
+            VALUES ('$username', '$password', '$email', '$dob', '$date_created')";
             mysqli_query($con, $query);
-        
+            header("Location: login.php");
         }
     }
     
@@ -125,7 +130,6 @@
             </div>
         </form>
 
-        <!-- <script src = "../Javascript/sign_up.js"></script> -->
     </div>
 </body>
 </html>

@@ -9,6 +9,7 @@
     $emailList = [];
     $is_adminList = [];
 
+    //get users from database
     while ($row = mysqli_fetch_array($result)) {
         $user_id = $row['user_id'];
         $username = $row['username'];
@@ -23,15 +24,17 @@
         $is_adminList[] = $role;
     }
 
-    // if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
-    //     session_unset();
-    //     session_destroy();
-    //     header("Location: ../index.php");
-    //     exit();
-    // }
+    //check if user is logged in and if session is expired
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../index.php");
+        exit();
+    }
 
     $_SESSION['LAST_ACTIVITY'] = time();
     
+    //logout
     if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
         session_unset();
         session_destroy();
@@ -47,18 +50,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- <link rel = "stylesheet" href = "../CSS/style.css"> -->
     <link rel = "icon" href = "../resources/Images/Web_Icon.png">
     <script src="https://kit.fontawesome.com/64d3afc91e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <style>
         <?php include "../CSS/dashboard.css" ?>
     </style>
-</head>
 
-<!-- <header>
-    <?php include "nav_bar.php"; ?>
-</header> -->
+    <script>
+        //alert message for delete and update
+        window.onload = function() {
+            <?php if (isset($_SESSION['deleted'])): ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User deleted successfully',
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+                <?php unset($_SESSION['deleted']); ?>
+            <?php endif; ?>
+        
+            <?php if (isset($_SESSION['updated'])): ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User updated successfully',
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+                <?php unset($_SESSION['updated']); ?>
+            <?php endif; ?>
+        }
+    </script>
+</head>
 
 <body>
     

@@ -1,0 +1,43 @@
+body { 
+    background-image: url(../resources/Images/map.png);
+}
+
+.detailsTable { 
+    border-collapse: separate;
+    margin: 25px 0;
+    font-size: 1.5em;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border-color: white;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 0 20px black;
+}
+
+.detailsTable th { 
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.detailsTable th {
+    padding: 10px;
+}
+
+.detailsTable td { 
+    padding: 15px 15px;
+    font-weight: 400;
+}
+
+.detailsTable tr { 
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+}
+
+.detailsTable tr:nth-of-type(even) { 
+    background-color: rgb(121, 121, 121);
+}

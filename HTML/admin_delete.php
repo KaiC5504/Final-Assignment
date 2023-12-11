@@ -1,7 +1,4 @@
 <?php 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     require('connect.php');
     session_start();
 
@@ -11,8 +8,9 @@
         $sql = "DELETE FROM users WHERE user_id = '$user_id'";
 
         if ($con->query($sql) === TRUE) {
+            $_SESSION['deleted'] = true;
             header("Location: admin_dashboard.php");
-            echo "Record deleted successfully";
+            exit();
         } else {
             echo "Error deleting record: " . $con->error;
         }

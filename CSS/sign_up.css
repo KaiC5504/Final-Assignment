@@ -33,7 +33,6 @@ label {
 
 .signUpInput {
     align-items: center; 
-    /* width: calc(100% - 16px); */
     width: 90%;
     padding: 8px;
     box-sizing: border-box;

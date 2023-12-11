@@ -6,10 +6,11 @@
     $passwordError = "";
 
 
+    // check if user is logged in and if session is expired
     if (isset($_POST['login'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $query = "Select * from users where username = '$username' and password = '$password'";
+        $query = "SELECT * from users where username = '$username' and password = '$password'";
         $result = mysqli_query($con, $query);
         $row = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) == 1) {
@@ -59,7 +60,7 @@
             document.getElementById('message').style.display = 'block';
             setTimeout(function() {
                 document.getElementById('message').style.display = 'none';
-            }, 5000); // The message box will disappear after 5 seconds
+            }, 5000); 
         </script>
     <?php endif ?>
     <form action = "login.php" method = "POST" novalidate>

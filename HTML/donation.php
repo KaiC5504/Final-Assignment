@@ -1,21 +1,37 @@
+<HTML>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+</HTML>
+
 <?php
     require('connect.php');
     session_start();
 
+    //update donation 
     if (isset($_POST['donation']) && isset($_SESSION['username'])) {
         $donation = $_POST['donation'];
         $username = $_SESSION['username'];
 
         $query = "UPDATE users SET donation = '$donation' WHERE username = '$username'";
 
+        
         if (mysqli_query($con, $query)) {
-            $_SESSION['message'] = 'Thank you for your donation!';
-            header("Location: ../index.php");
+            echo "<script>
+                    Swal.fire({
+                    title: 'Thank you for your donation!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    }).then (function() {
+                        window.location.href = '../index.php';
+                    });
+                </script>";
         } else {
             // echo "Error updating record: " . mysqli_error($con);
         }
     }
 
+    //get donation list
     $query = "SELECT user_id, username, donation FROM users WHERE donation > 0";
     $result = mysqli_query($con, $query);
 
@@ -33,6 +49,7 @@
         $donationList[] = $donation;
     }
 
+    //Session timeout
     if (isset($_SESSION['username'])) {
         
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
@@ -59,7 +76,6 @@
     <link rel = "stylesheet" href = "../CSS/style.css">
     <link rel = "icon" href = "../resources/Images/Web_Icon.png">
     <script src="https://kit.fontawesome.com/64d3afc91e.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src = "../JavaScript/hamburger.js" defer></script>
 
     <style>

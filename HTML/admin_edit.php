@@ -2,6 +2,7 @@
     require('connect.php');
     session_start();
 
+    // select user_id to edit
     if (isset($_GET['user_id'])) {
         $user_id = $_GET['user_id'];
 
@@ -21,6 +22,7 @@
         }
     }
 
+    // update user
     if(isset($_POST['update'])) {
         $user_id = $_POST['user_id'];
         $username = $_POST['username'];
@@ -34,22 +36,22 @@
         $query_run = mysqli_query($con, $query);
 
         if ($query_run) {
-            $_SESSION['message'] = "Your data is updated";
+            $_SESSION['updated'] = true;
             header("Location: admin_dashboard.php");
             exit();
         } else {
-            // Debug print
             echo "Error: " . mysqli_error($con);
         }
     }
     
 
-    // if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
-    //     session_unset();
-    //     session_destroy();
-    //     header("Location: ../index.php");
-    //     exit();
-    // }
+    // check if user is logged in and if session is expired
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../index.php");
+        exit();
+    }
 
     $_SESSION['LAST_ACTIVITY'] = time();
 

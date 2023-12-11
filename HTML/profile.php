@@ -1,6 +1,8 @@
 <?php
     require('connect.php');
     session_start();
+
+    // retrieve user details and session timeout
     if (isset($_SESSION['username'])) {
         $query = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
         $result = mysqli_query($con, $query);
@@ -8,6 +10,7 @@
         $username = $row['username'];
         $dob = $row['dob'];
         $email = $row['email'];
+        $date_created = $row['date_created'];
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             session_unset();
             session_destroy();
@@ -68,7 +71,7 @@
                 </ul>
                 <ul>
                     <h3>Account Created</h3>
-                    <li>WILL BE ADDED IN</li>
+                    <li name = "date_created"><?php echo "$date_created"; ?></li>
                 </ul>
                 <ul>
                     <h3>Contact</h3>

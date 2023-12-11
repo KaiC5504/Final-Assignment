@@ -1,6 +1,8 @@
 <?php
     require('connect.php');
     session_start();
+
+    // check if user is logged in and if session is expired
     if (isset($_SESSION['username'])) {
         $query = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
         $result = mysqli_query($con, $query);
@@ -9,8 +11,7 @@
         $dob = $row['dob'];
         $email = $row['email'];
         $user_id = $row['user_id'];
-        // echo "$username <br>"; 
-        // echo "$dob";
+
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             session_unset();
             session_destroy();
