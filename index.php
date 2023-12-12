@@ -5,10 +5,10 @@
     //check if user is logged in and if session is expired
     if (isset($_SESSION['username'])) {
         
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1)) {
             session_unset();
             session_destroy();
-            header("Location: index.php");
+            header("Location: HTML/session_timeout.php");
             exit();
         };
         $_SESSION['LAST_ACTIVITY'] = time();

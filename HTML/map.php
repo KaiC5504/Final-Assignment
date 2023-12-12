@@ -2,7 +2,7 @@
     require('connect.php');
     session_start();
 
-    //Select Locaiton 
+    //Select Location
     $sql = "SELECT location, rating, color FROM places";
     $result = mysqli_query($con, $sql);
 
@@ -17,6 +17,21 @@
             $color = $row['color'];
             $ratings[$location] = array('rating' => $rating, 'color' => $color);
         }
+    }
+
+    //Session timeout
+    if (isset($_SESSION['username'])) {
+        
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+            session_unset();
+            session_destroy();
+            header("Location: session_timeout.php");
+            exit();
+        };
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+    else {
+        session_unset();
     }
 ?>
 
@@ -48,8 +63,8 @@
         <?php
             
             $locations = array("Perlis", "Kedah", "Penang", "Perak", "Selangor", "Kelantan", "Terrenganu", "Pahang", "Negeri Sembilan", "Melaka", "Johor", "Sabah", "Sarawak");
-            $topPositions = array("29%", "36%", "43%", "52%", "69%", "43%", "49%", "62%", "74%", "79%", "82%", "43%", "74%");
-            $leftPositions = array("4.5%", "7%", "5.5%", "9%", "12.5%", "16%", "22%", "19%", "17%", "17%", "24%", "83%", "63%");
+            $topPositions = array("29%", "36%", "42%", "52%", "69%", "43%", "49%", "62%", "71%", "76%", "82%", "43%", "74%");
+            $leftPositions = array("4.5%", "7%", "6%", "9%", "12.5%", "16%", "22%", "19%", "17%", "17%", "24%", "83%", "63%");
 
             for ($i = 0; $i < count($locations); $i++) {
                 $location = $locations[$i];

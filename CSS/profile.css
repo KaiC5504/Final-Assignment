@@ -61,7 +61,7 @@ body{
     margin-top: 20px;
 }
 
-.editButton, .logoutButton{
+.editButton, .logoutButton, .deleteButton{
     display: inline-block;
     padding: 2vh 1vw;
     font-size: 1vw;
@@ -86,25 +86,25 @@ body{
     padding: 10px;
 }
 
-.editButton:hover, .logoutButton:hover { 
+.editButton:hover, .logoutButton:hover, .deleteButton:hover { 
     background-color: #192c60;
     transition: background-color 0.4s ease;
 }
 
-.editButton:active, .logoutButton:active { 
+.editButton:active, .logoutButton:active, .deleteButton:active { 
     background-color: #192c60;
     box-shadow: 0 0.1em rgb(169, 169, 169);
     transform: translateY(0.2em);
 }
 
-.editButton span, .logoutButton span {
+.editButton span, .logoutButton span, .deleteButton span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.editButton span:after, .logoutButton span:after {
+.editButton span:after, .logoutButton span:after, .deleteButton span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -113,11 +113,11 @@ body{
     transition: 0.5s;
 }
 
-.editButton:hover span, .logoutButton:hover span {
+.editButton:hover span, .logoutButton:hover span, .deleteButton:hover span {
     padding-right: 35px;
 }
   
-.editButton:hover span:after, .logoutButton:hover span:after {
+.editButton:hover span:after, .logoutButton:hover span:after, .deleteButton:hover span:after {
     opacity: 1;
     right: 0;
 }

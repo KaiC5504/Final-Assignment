@@ -55,7 +55,7 @@
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
             session_unset();
             session_destroy();
-            header("Location: ../index.php");
+            header("Location: session_timeout.php");
             exit();
         };
         $_SESSION['LAST_ACTIVITY'] = time();
